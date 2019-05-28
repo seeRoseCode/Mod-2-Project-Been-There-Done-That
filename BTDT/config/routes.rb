@@ -8,5 +8,4 @@ Rails.application.routes.draw do
   resources :users#WORKING
   resources :countries, only: [:index, :show]#WORKING
   resources :visits, only: [:index, :new, :create, :show]#WORKING
-
 end

@@ -1,0 +1,6 @@
+<h1> All Countries </h1>
+ <ul>
+   <% @countries.each do |p| %>
+   <li><%= link_to p.name, country_path(p) %></li>
+   <% end %>
+ </ul>

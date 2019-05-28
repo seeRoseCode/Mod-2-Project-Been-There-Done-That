@@ -7,13 +7,13 @@ class User < ApplicationRecord
 
 
     def most_points
-        @@users.max_by { |user| user.points }
+        User.all.max_by { |user| user.points }
     end
 
-    def self.avg_visits_per_user
-        all.average(:visits)
+    def avg_visits_per_user
+        User.all.average(:visits)
     end
 
-    def age_range
-    end
+    # def age_range
+    # end
 end
