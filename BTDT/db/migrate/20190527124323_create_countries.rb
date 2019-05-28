@@ -3,7 +3,7 @@ class CreateCountries < ActiveRecord::Migration[5.2]
     create_table :countries do |t|
       t.string :name
       t.string :language
-      t.string :flag_emoji
+      t.string :emoji
       t.timestamps
     end
   end
