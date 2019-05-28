@@ -1,0 +1,5 @@
+<h1> Visit Details </h1>
+<label> Country: <label>
+<%= @visit.country.name %><br>
+<label> User's Name: <label>
+<%= link_to(@visit.user.name, users_path(@user)) %>
