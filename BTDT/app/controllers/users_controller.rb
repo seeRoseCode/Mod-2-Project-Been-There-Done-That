@@ -7,6 +7,10 @@ class UsersController < ApplicationController
     #   redirect_to login_path
     end
 
+    def index
+      @users = User.all
+    end
+
     def new
         @user = User.new
 
@@ -14,7 +18,6 @@ class UsersController < ApplicationController
 
     def login 
         @user = User.new
-
     end
 
     def create
@@ -27,12 +30,15 @@ class UsersController < ApplicationController
         end
     end
 
-    def index
-        @users = User.all
-    end
 
     def show
-        @user = User.find(params[:id])
+      @user = User.find(params[:id])
+    end
+
+    def destroy
+      @user = User.find(params[:id])
+      @user.destroy
+      redirect_to users_path
     end
 
 

@@ -1,3 +1,14 @@
 <h1> Created User Details </h1>
-<label> Name: <label>
-<%= link_to(@user.name, user_path(@user)) %>
+
+<h2>Username: <%= @user.name %></h2><br><br>
+<h3>Points: <%= @user.points %></h3>
+<img src="<%= @user.profile_pic %>" alt="My Profile Pic">
+<ul>
+  <li>Age: <%= @user.age %></li>
+  <li>Country: <%= @user.country %></li>
+  <li>Number of Visits: <% @user.visits.length %></li>
+</ul>
+
+
+
+<%= link_to('Delete User', user_path(@user), method: :delete, data: {confirm: "Are you sure?"}) %>
