@@ -23,7 +23,7 @@ ActiveRecord::Schema.define(version: 2019_05_28_145126) do
   create_table "countries", force: :cascade do |t|
     t.string "name"
     t.string "language"
-    t.string "emoji"
+    t.string "flag_emoji"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

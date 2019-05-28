@@ -7,8 +7,14 @@
 <% end %>
 <br>
 
+
 <%= form_for(@visit) do |x| %>
-    <%= x.label("Country Visited")%>
-    <%= x.collection_select(:country_id, Country.all, :id, :name) %>
+    <form role="form form-group">
+    <%= collection_check_boxes :visit, :country_id, Country.all, :id, :name do |c| %>
+        <label class="checkbox-inline">
+            <%= c.check_box %>
+            <%= c.label %>
+            </label>
+        <% end %>
     <%= x.submit("Create Visit") %>
 <% end %>
