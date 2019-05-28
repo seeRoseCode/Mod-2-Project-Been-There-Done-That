@@ -10,7 +10,6 @@ class SessionsController < ApplicationController
     # Used to login as an already created user
     def create
         @user = User.find_by(name: params[:user][:name])
-        byebug
         if @user && @user.authenticate(params[:user][:password])
             session[:user_id] = @user.id
             redirect_to user_path(@user)
