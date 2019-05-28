@@ -6,6 +6,7 @@ class User < ApplicationRecord
     has_many :comments
 
 
+
     def most_points
         User.all.max_by { |user| user.points }
     end
