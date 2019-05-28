@@ -12,7 +12,6 @@ class VisitsController < ApplicationController
   end
 
   def create
-
     visit_params["country_id"].each do |c|
       if c != ""
         @visit = Visit.create(
