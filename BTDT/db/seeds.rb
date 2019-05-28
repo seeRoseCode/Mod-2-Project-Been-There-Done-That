@@ -10,14 +10,14 @@ require 'json'
 
 
 flags_file = File.read("./flags.json")
-flags_hash = JSON.parse(flags_file)
+flags_hash = JSON.parse(flags_file) 
 
 
-5.times do
+flags_hash.each do |fh|
   Country.create(
-    name: Faker::Address.country,
-    language: Faker::Nation.language,
-    emoji: Faker::Nation.flag
+    name: fh["name"],
+    language: fh["languages"],
+    flag_emoji: fh["emoji"]
   )
 end
 

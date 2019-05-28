@@ -1,3 +1,9 @@
+<h3> ERROR BUG </h3>
+<% if @user.errors.present? %>
+<% @user.errors.full_messages.each do |msg| %>
+  <li style="color:red"> <%= msg %> </li>
+  <% end %>
+<% end %>
 
 <%= form_for @user, url: login_path, method: 'POST' do |f| %>
     <%= f.label :name %>
