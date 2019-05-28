@@ -1,5 +1,5 @@
 class User < ApplicationRecord
-    has_secure_password ######BUG########
+    # has_secure_password ######BUG########
     has_many :visits
     has_many :countries, through: :visits
     has_many :posts
