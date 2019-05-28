@@ -15,7 +15,7 @@ class UsersController < ApplicationController
         @user = User.new
     end
 
-    def login 
+    def login
         @user = User.new
     end
 
@@ -33,6 +33,23 @@ class UsersController < ApplicationController
     def show
       @user = User.find(params[:id])
     end
+
+    def edit
+      @user = User.find(params[:id])
+    end
+
+    def update
+      @user = User.find(params[:id])
+      @user.profile_pic = params["user"][:profile_pic]
+      @user.age = params["user"][:age]
+      if @user.save
+          session[:user_id] = @user.id
+          redirect_to user_path(@user)
+      else
+          render :edit
+      end
+    end
+
 
     def destroy
       @user = User.find(params[:id])
