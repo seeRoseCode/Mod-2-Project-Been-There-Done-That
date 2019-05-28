@@ -1,23 +1,55 @@
 class PostsController < ApplicationController
-  def index
+  def index#WORKING
+    @posts = Post.all
   end
 
   def new
+    @post = Post.new
   end
 
   def create
+    @post = Post.new(post_params)
+    if @post.save
+      redirect_to post_path(@post)
+    else
+      render :new
+    end
+
   end
 
-  def show
+  def show#WORKING
+    this_post
   end
 
-  def edit
+  def edit#WORKING
+    this_post
   end
 
-  def update
+  def update#WORKING
+    this_post
+    this_post.user_id = @post.user.id
+    if @post.update(post_params)
+      redirect_to post_path(@post)
+    else
+      render :edit
+    end
   end
 
-  def delete
+  def destroy#WORKING
+    this_post.delete
+    redirect_to posts_path
   end
-  
+
+################################################################
+private
+
+  def post_params
+    params.require(:post).permit(:title, :content)
+  end
+
+  def this_post
+    @post = Post.find(params[:id])
+  end
+
+
 end
