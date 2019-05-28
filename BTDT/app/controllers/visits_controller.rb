@@ -1,5 +1,4 @@
 class VisitsController < ApplicationController
-
   def index
     @visits = Visit.all
   end
@@ -23,8 +22,6 @@ class VisitsController < ApplicationController
 
   private
   def visit_params
-    params.require(:visit).permit(:name, :language, :flag_emoji)
+    params.require(:visit).permit(:country_id, :user_id)
   end
-
-
 end
