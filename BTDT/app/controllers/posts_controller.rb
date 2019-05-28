@@ -12,7 +12,7 @@ class PostsController < ApplicationController
   def create
     @post = Post.new(post_params)
     if @post.save
-      redirect_to post_path(@post)
+      redirect_to posts_path(@post)
     else
       render :new
     end
@@ -52,6 +52,4 @@ private
   def this_post
     @post = Post.find(params[:id])
   end
-
-
 end
