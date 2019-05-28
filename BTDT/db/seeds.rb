@@ -6,17 +6,16 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 require 'json'
-require 'pry'
 
 flags_file = File.read("./flags.json")
-flags_hash = JSON.parse(flags_file)
+flags_hash = JSON.parse(flags_file) 
 
 
-5.times do
+flags_hash.each do |fh|
   Country.create(
-    name: Faker::Address.country,
-    language: Faker::Nation.language,
-    emoji: Faker::Nation.flag
+    name: fh["name"],
+    language: fh["languages"],
+    flag_emoji: fh["emoji"]
   )
 end
 

@@ -12,9 +12,9 @@ class VisitsController < ApplicationController
   end
 
   def create
-    @visit = Visit.new(visit_params)
+    @visit = Visit.create(visit_params)
     if @visit.save
-      redirect_to vist_path(@visit)
+      redirect_to visit_path(@visit)
     else
       render :new
     end
@@ -22,6 +22,6 @@ class VisitsController < ApplicationController
 
   private
   def visit_params
-    params.require(:visit).permit(:country_id, :user_id)
+    params.require(:visit).permit( :user_id, :country_id => [])
   end
 end
