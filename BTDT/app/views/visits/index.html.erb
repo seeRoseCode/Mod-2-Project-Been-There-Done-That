@@ -1,0 +1,10 @@
+<h2> All Visits </h2>
+
+<ul>
+  <% @visits.each do |visit| %>
+    <li>
+      <%= link_to(visit.country.name, visit_path(visit)) %>
+    </li>
+    <br>
+  <% end %>
+</ul>

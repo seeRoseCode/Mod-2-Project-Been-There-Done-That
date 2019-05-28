@@ -11,4 +11,45 @@ require 'pry'
 flags_file = File.read("./flags.json")
 flags_hash = JSON.parse(flags_file)
 
-Pry.start
+
+5.times do
+  Country.create(
+    name: Faker::Address.country,
+    language: Faker::Nation.language,
+    emoji: Faker::Nation.flag
+  )
+end
+
+5.times do
+  User.create(
+    name: Faker::Name.name,
+    age: rand(18...95),
+    country: Country.all.sample,
+    profile_pic: Faker::Address.city,
+    points: 10,
+    # password_digest: "123"
+  )
+end
+
+20.times do
+  Visit.create(
+    country_id: Country.all.sample.id,
+    user_id: User.all.sample.id
+)
+end
+
+10.times do
+  Post.create(
+    title: Faker::Books::Dune.title,
+    content: Faker::Books::Dune.quote,
+    user_id: User.all.sample.id
+  )
+end
+
+20.times do
+  Comment.create(
+    text: Faker::Books::Dune.quote,
+    user_id: User.all.sample.id,
+    post_id: Post.all.sample.id
+  )
+end
