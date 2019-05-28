@@ -1,0 +1,7 @@
+<h1>Edit Your Profile</h1>
+
+<%= form_for @user do |f| %>
+  New Profile Picture: <%= f.text_field :profile_pic %>
+  Age: <%= f.text_field :age %>
+  <%= f.submit %>
+<% end %>
