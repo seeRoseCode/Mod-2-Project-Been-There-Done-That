@@ -4,11 +4,12 @@ class VisitsController < ApplicationController
   end
 
   def show
-    @visit = Visit.find(params[:id])
+    @visit = Visit.find(session[:user_id])
   end
 
   def new
     @visit = Visit.new
+    @user = User.find(session[:user_id])
   end
 
   def create
