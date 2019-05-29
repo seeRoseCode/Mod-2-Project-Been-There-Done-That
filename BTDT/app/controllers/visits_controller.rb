@@ -4,12 +4,20 @@ class VisitsController < ApplicationController
   end
 
   def show
-    @visit = Visit.find(session[:user_id])
+    if session[:user_id].nil?
+      redirect_to login_path
+    else
+      @visit = Visit.find(session[:user_id])
+    end
   end
 
   def new
-    @visit = Visit.new
-    @user = User.find(session[:user_id])
+    if session[:user_id].nil?
+      redirect_to login_path
+    else
+      @visit = Visit.new
+      @user = User.find(session[:user_id])
+    end
   end
 
   def create

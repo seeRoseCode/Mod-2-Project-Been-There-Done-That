@@ -2,4 +2,4 @@
 <label> Country: <label>
 <%= @visit.country.name %><br>
 <label> User's Name: <label>
-<%= link_to(@visit.user.name, users_path(@user)) %>
+<%= link_to(@visit.user.name, user_path(@visit.user)) %>
