@@ -1,28 +1,68 @@
-<h1> BEEN THERE DONE THAT! </h1>
+<div class="jumbotron">
+  <h1 class="display-3">Been There Done That!</h1>
+  <p class="lead">The place for world travelers to see and be seen</p>
+  <hr class="my-4">
+  <p>Rank yourself, see where others stand and be inspired to travel more.</p>
+  <p class="lead">
+    <%= link_to "Get Started", new_user_path, :class => 'btn btn-primary btn-lg' %>
+  </p>
+</div>
 
 
-<h2>MOST POINTS</h2>
-  <ul>
-
-    <% @rank_by_points.each do |u| %>
-      <li><%= u.name %>: <%= u.points %></li><br>
-    <% end %>
-  </ul>
-
-
-<h2>MOST COUNTRIES</h2>
-<ul>
-
-  <% @rank_by_countries.each do |u| %>
-    <li><%= u.name %>: <%= u.num_of_countries %></li><br>
-  <% end %>
-</ul>
-
-<h2>MOST POPULAR COUNTRIES</h2>
-<ul>
-  <% @most_visited_countries.each do |c| %>
-    <li><%= c.name %>: <%= c.visits.length %></li><br>
-  <% end %>
-</ul>
-
-<% %>
+<div class="container-center">
+  <div class="row">
+    <div class="col-sm-5">
+    <h2 class="text-center">MOST POINTS</h2>
+      <table class="table table-hover">
+        <thead>
+          <tr>
+          </tr>
+        </thead>
+        <tbody>
+          <% @rank_by_points.each do |u| %>
+          <tr class="table-active">
+            <th scope="row"><%= link_to u.name, user_path(u) %></th>
+            <td><%= u.points %></td>
+            </tr>
+            <% end %>
+        </tbody>
+      </table> 
+    </div>
+    <div class="col-sm-5">
+      <h2 class="text-center">MOST COUNTRIES</h2>
+        <table class="table table-hover">
+        <thead>
+          <tr>
+          </tr>
+        </thead>
+        <tbody>
+          <% @rank_by_countries.each do |u| %>
+          <tr class="table-active">
+            <th scope="row"><%= link_to u.name, user_path(u) %></th>
+            <td><%= u.num_of_countries %></td>
+            </tr>
+            <% end %>
+        </tbody>
+      </table> 
+    </div>
+  </div>
+</div>
+<div class="container-center">
+  <div class="col-sm-10">
+<h2 class="text-center">MOST POPULAR COUNTRIES</h2>
+<table class="table table-hover">
+        <thead>
+          <tr>
+          </tr>
+        </thead>
+        <tbody>
+          <% @most_visited_countries.each do |c| %>
+          <tr class="table-active">
+            <th scope="row"><%= c.flag_emoji %> <%= link_to c.name, country_path(c) %></th>
+            <td><%= c.visits.length %></td>
+            </tr>
+            <% end %>
+        </tbody>
+      </table> 
+  </div>
+</div>
