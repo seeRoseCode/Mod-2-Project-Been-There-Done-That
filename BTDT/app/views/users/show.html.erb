@@ -2,7 +2,9 @@
 <h2>Rank: <%= @user.title %></h2>
 <h3> Rankings </h3>
 <ul>
-<li><%=@user.my_rank_by_countries %></li>
+<li># <%= @user.my_rank_by_countries %> in Countries visited!</li>
+<li># <%= @user.my_rank_by_points %> in Points Accumulated!</li>
+<li># <%= @user.my_rank_by_visits %> in Trips Taken!</li>
 </ul>
 
 

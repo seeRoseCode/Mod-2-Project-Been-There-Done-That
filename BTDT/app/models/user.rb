@@ -44,17 +44,17 @@ class User < ApplicationRecord
     end
 
     def my_rank_by_countries
-      rank = User.sort_by_countries.index {|u| u.name == self.name}.index + 1
+      rank = User.sort_by_countries.index {|u| u.name == self.name} + 1
       rank
     end
 
     def my_rank_by_points
-      rank = User.sort_by_points.index {|u| u.name == self.name}.index + 1
+      rank = User.sort_by_points.index {|u| u.name == self.name} + 1
       rank
     end
 
     def my_rank_by_visits
-      rank = User.sort_by_visits.index {|u| u.name == self.name}.index + 1
+      rank = User.sort_by_visits.index {|u| u.name == self.name} + 1
       rank
     end
 
