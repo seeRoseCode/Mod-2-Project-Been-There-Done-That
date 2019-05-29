@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
 
     def home
+        # byebug
       @users = User.all
       @rank_by_points = User.sort_by_points[0..4]
       @rank_by_countries = User.sort_by_countries[0..4]
@@ -16,9 +17,9 @@ class UsersController < ApplicationController
         @user = User.new
     end
 
-    def login
+    def login 
         @user = User.new
-    end
+    end 
 
     def create
         @user = User.new(user_params)
