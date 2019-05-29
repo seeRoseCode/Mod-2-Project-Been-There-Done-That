@@ -13,3 +13,13 @@
  *= require_tree .
  *= require_self
  */
+
+ 
+#form-group{
+    margin-left: 20% !important;
+}
+
+.styling-test{
+    color:red !important;
+}
+
