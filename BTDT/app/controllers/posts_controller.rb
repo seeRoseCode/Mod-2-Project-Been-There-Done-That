@@ -5,7 +5,6 @@ class PostsController < ApplicationController
 
   def new
     @user = User.find_by(id: session[:user_id])
-    # byebug
     @post = Post.new
   end
 

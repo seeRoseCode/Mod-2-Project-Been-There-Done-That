@@ -13,14 +13,21 @@ class VisitsController < ApplicationController
   end
 
   def create
+    @user = User.find(session[:user_id])
+    if @user.points == nil
+      @user.points = 0
+    end
     visit_params["country_id"].each do |c|
       if c != ""
         @visit = Visit.create(
           country_id: c.to_i,
           user_id: session[:user_id]
         )
+        @user.points += 10
       end
     end
+    @user.bonus_points
+    @user.save
   redirect_to user_path(session[:user_id])
   end
 
@@ -29,4 +36,6 @@ class VisitsController < ApplicationController
   def visit_params
     params.require(:visit).permit( :user_id, :country_id => [])
   end
-end
+
+
+end#CLASS END

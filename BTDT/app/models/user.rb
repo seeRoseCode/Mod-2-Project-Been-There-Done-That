@@ -14,26 +14,18 @@ class User < ApplicationRecord
         User.all.average(:visits)
     end
 
-    def my_points
-      @points = self.points
-      @visits = self.visits
+    
+    def bonus_points
       @num_of_visits = self.visits.length
-
-      @visits.each do |v|
-        @points += 10
+      if @num_of_visits == 5
+        self.points += 10
+      elsif @num_of_visits == 10
+        self.points += 50
+      elsif @num_of_visits == 15
+        self.points +=  100
       end
-
-      case @num_of_visits
-      when 1..5
-        @points += 10
-      when 6..10
-        @points += 50
-      when 11..15
-        @points +=  100
-      end
-
-      @points
     end
+
 
     # def age_range
     # end
