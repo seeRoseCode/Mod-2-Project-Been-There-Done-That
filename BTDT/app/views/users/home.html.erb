@@ -1,1 +1,28 @@
-<h1> HOME PAGE!!! </h1>
+<h1> BEEN THERE DONE THAT! </h1>
+
+
+<h2>MOST POINTS</h2>
+  <ul>
+
+    <% @rank_by_points.each do |u| %>
+      <li><%= u.name %>: <%= u.points %></li><br>
+    <% end %>
+  </ul>
+
+
+<h2>MOST COUNTRIES</h2>
+<ul>
+
+  <% @rank_by_countries.each do |u| %>
+    <li><%= u.name %>: <%= u.num_of_countries %></li><br>
+  <% end %>
+</ul>
+
+<h2>MOST POPULAR COUNTRIES</h2>
+<ul>
+  <% @most_visited_countries.each do |c| %>
+    <li><%= c.name %>: <%= c.visits.length %></li><br>
+  <% end %>
+</ul>
+
+<% %>
