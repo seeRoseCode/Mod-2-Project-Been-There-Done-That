@@ -10,13 +10,13 @@ class PostsController < ApplicationController
   end
 
   def create
+    @user = User.find_by(id: session[:user_id]) 
     @post = Post.new(post_params)
     if @post.save
       redirect_to post_path(@post)
     else
       render :new
     end
-
   end
 
   def show#WORKING
@@ -29,7 +29,6 @@ class PostsController < ApplicationController
 
   def update#WORKING
     this_post
-    this_post.user_id = @post.user.id
     if @post.update(post_params)
       redirect_to post_path(@post)
     else
@@ -38,7 +37,7 @@ class PostsController < ApplicationController
   end
 
   def destroy#WORKING
-    this_post.delete
+    this_post.destroy
     redirect_to posts_path
   end
 
@@ -52,6 +51,4 @@ private
   def this_post
     @post = Post.find(params[:id])
   end
-
-
 end
