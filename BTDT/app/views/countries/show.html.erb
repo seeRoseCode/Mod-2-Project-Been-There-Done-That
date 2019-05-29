@@ -2,3 +2,11 @@
 <h4><li><label> Name: <label> <%= @country.name %></h4>
 <h4><li><label> Language: <label> <%= @country.language %></h4>
 <h4><li><label> Flag: <label> <%= @country.flag_emoji %></h4>
+
+<h3> Country's Visits: <%= @country.visits.length %> </h3>
+<h4> Country's Tourists: <%= @country.users.uniq.length %> </h4>
+<ul>
+  <% @country.users.uniq.each do |c| %>
+    <li><%= c.name %></li>
+  <% end %>
+</ul>
