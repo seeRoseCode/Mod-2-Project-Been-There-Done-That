@@ -44,6 +44,7 @@ class UsersController < ApplicationController
       @user = User.find(params[:id])
       @user.profile_pic = params["user"][:profile_pic]
       @user.age = params["user"][:age]
+      @user.country_of_origin = params["user"][:country_of_origin]
       if @user.save
           session[:user_id] = @user.id
           redirect_to user_path(@user)
@@ -62,7 +63,7 @@ class UsersController < ApplicationController
 
     private
     def user_params
-        params.require(:user).permit(:name, :age, :country, :profile_pic, :password, :password_confirmation)
+        params.require(:user).permit(:name, :age, :country_of_origin, :profile_pic, :password, :password_confirmation)
     end
 
 end
