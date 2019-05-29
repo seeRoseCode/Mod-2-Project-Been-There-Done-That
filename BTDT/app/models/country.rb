@@ -25,7 +25,7 @@ class Country < ApplicationRecord
   end
 
   def self.sort_by_visits
-    all.sort_by{|c| c.visits.length}.reverse
+    all.sort_by{|c| c.visits.length}.reverse[0..9]
   end
 
 
