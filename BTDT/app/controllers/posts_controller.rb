@@ -3,14 +3,15 @@ class PostsController < ApplicationController
     @posts = Post.all
   end
 
-  def new
+  def new#WORKING
     @user = User.find_by(id: session[:user_id])
     @post = Post.new
   end
 
-  def create
+  def create#WORKING
     @user = User.find_by(id: session[:user_id]) 
     @post = Post.new(post_params)
+    @post.user_id = session[:user_id]
     if @post.save
       redirect_to post_path(@post)
     else
