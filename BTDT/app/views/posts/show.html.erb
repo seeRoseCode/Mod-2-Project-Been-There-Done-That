@@ -4,7 +4,7 @@
 
 <p><%= @post.content %></p>
 
-<% if @user %>
-  <%= link_to("Edit Post", edit_post_path(@post)) %>
+<% if session[:user_id] == @post.user.id %>
+  <%= link_to "Edit Post", edit_post_path(@post) %>
   <%= link_to('Delete Post', post_path(@post), method: :delete, data: {confirm: "Are you sure?"}) %>
 <% end %>
