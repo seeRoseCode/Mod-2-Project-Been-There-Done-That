@@ -25,6 +25,16 @@
   <% end %>
 </ul>
 
+<h3>POSTS</h3>
+<% if @posts.length > 0 %>
+  <% @posts.each do |p|%>
+    <li><%= p.title %></li><p><%=p.content %></p>
+    <p><%= link_to 'add comment', {:controller => "comments", :action => "new", :post => p} %></p><br><br><br>
+  <% end %>
+<% else %>
+  You don't have any posts <br><br>
+<% end %>
+
 
 <% if session[:user_id] == @user.id %>
   <%= link_to "Create New Trip", new_visit_path %><br>
