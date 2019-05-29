@@ -1,14 +1,13 @@
-<h1> Created User Details </h1>
+<h1> <%= @user.name %> </h1>
+<h2>Rank: <%= @user.title %></h2>
+<h3> Rankings </h3>
+<ul>
+<li><%=@user.my_rank_by_countries %></li>
+</ul>
 
 
-<% if session[:user_id] == @user.id %>
-  <h2><%= link_to "Create New Trip", new_visit_path %></h2>
-<% end %>
 
 
-
-
-<h2><%= @user.name %></h2><br><br>
 <img src="<%= @user.profile_pic %>" alt="My Profile Pic" height = "100" width = "100">
 <h3>Points: <%= @user.points %></h3>
 <ul>
@@ -24,7 +23,9 @@
   <% end %>
 </ul>
 
+
 <% if session[:user_id] == @user.id %>
+  <%= link_to "Create New Trip", new_visit_path %><br>
   <%= link_to "Create New Post", new_post_path(@user) %><br>
   <%= link_to "Edit User", edit_user_path(@user) %><br>
   <%= link_to('Delete User', user_path(@user), method: :delete, data: {confirm: "Are you sure?"}) %><br>

@@ -2,10 +2,11 @@ class UsersController < ApplicationController
 
     def home
       @users = User.all
-      @countries = Country.all
-      @visits = Visit.all
-    #   redirect_to login_path
+      @rank_by_points = User.sort_by_points
+      @rank_by_countries = User.sort_by_countries
+      @most_visited_countries = Country.sort_by_visits
     end
+    #   redirect_to login_path
 
     def index
       @users = User.all
