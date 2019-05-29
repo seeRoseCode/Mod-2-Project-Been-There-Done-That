@@ -1,0 +1,6 @@
+<h1><%= @comment.post.content %></h1><br>
+<%=link_to @comment.user.name, user_path(@comment.user) %>
+
+<% if @comment.post.user_id == session[:id] || @comment.user_id == session[:user_id] %>
+  <%= link_to('delete', comment_path(@comment), method: :delete, data: {confirm: "Are you sure?"}) %>
+<% end %>
