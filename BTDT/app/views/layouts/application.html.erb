@@ -16,13 +16,25 @@
 
   <div class="collapse navbar-collapse" id="navbarsExampleDefault">
     <ul class="navbar-nav mr-auto">
-      <li>
-        <%= link_to 'Home', home_path %>
+      <li class="nav-item">
+        <%= link_to 'Home', home_path, class: "nav-item nav-link" %>
+      </li>
+      <li class="nav-item">
+        <%= link_to 'Users', users_path, class: "nav-item nav-link" %>
+      </li>
+      <li class="nav-item">
+        <%= link_to 'Visits', visits_path, class: "nav-item nav-link" %>
+      </li>
+      <li class="nav-item">
+        <%= link_to 'Posts', posts_path, class: "nav-item nav-link" %>
+      </li>
+      <li class="nav-item">
+        <%= link_to 'All Countries', countries_path, class: "nav-item nav-link" %>
       </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
       <li>
-        <%= link_to 'Create Post', new_post_path %>
+        <%= link_to 'Log In', login_path, class: "nav-item nav-link" %>
       </li>
     </ul>
   </div>
