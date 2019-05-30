@@ -20,6 +20,7 @@ class PostsController < ApplicationController
   end
 
   def show#WORKING
+    @comment = Comment.new
     this_post
   end
 
@@ -36,6 +37,16 @@ class PostsController < ApplicationController
     end
   end
 
+  # def new_comment
+  #   @post = Post.find(params[:id])
+  #   #render new view page
+  # end
+  #
+  # def new_comment_create
+  #   @post.comments.build(comment_params)
+  # end
+
+
   def destroy#WORKING
     this_post.destroy
     redirect_to posts_path
@@ -45,8 +56,9 @@ class PostsController < ApplicationController
 private
 
   def post_params
-    params.require(:post).permit(:title, :content)
+    params.require(:post).permit(:title, :content, :attributes, comments_attributes: [:text, :attributes])
   end
+
 
   def this_post
     @post = Post.find(params[:id])
