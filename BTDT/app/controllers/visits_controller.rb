@@ -7,7 +7,7 @@ class VisitsController < ApplicationController
     if session[:user_id].nil?
       redirect_to login_path
     else
-      this_visit
+      @visit = Visit.find(session[:user_id])
     end
   end
 
@@ -16,13 +16,14 @@ class VisitsController < ApplicationController
       redirect_to login_path
     else
       @visit = Visit.new
-      this_user
+      @user = User.find(session[:user_id])
     end
   end
 
   def create
-    if this_user.points == nil
-      this_user.points = 0
+    @user = User.find(session[:user_id])
+    if @user.points == nil
+      @user.points = 0
     end
 
     visit_params["country_id"].each do |c|
@@ -31,11 +32,11 @@ class VisitsController < ApplicationController
           country_id: c.to_i,
           user_id: session[:user_id]
         )
-        this_user.points += 10
+        @user.points += 10
       end
     end
-    this_user.bonus_points
-    this_user.save
+    @user.bonus_points
+    @user.save!(validate: false)
   redirect_to user_path(session[:user_id])
   end
 
@@ -44,13 +45,4 @@ class VisitsController < ApplicationController
   def visit_params
     params.require(:visit).permit( :user_id, :country_id => [])
   end
-
-  def this_visit
-    @visit = Visit.find(session[:user_id])
-  end
-
-  def this_user
-    @user = User.find(session[:user_id])
-  end
-
 end#CLASS END

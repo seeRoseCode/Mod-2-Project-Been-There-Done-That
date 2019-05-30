@@ -9,7 +9,7 @@ class SessionsController < ApplicationController
             redirect_to user_path(@user), notice: "Logged in!"
         else
             flash[:alert] = "Username or password invalid"
-            render :new
+            redirect_to login_path
         end
     end
 

@@ -1,6 +1,4 @@
-<%# <% byebug %>
 <p><%= alert %></p>
-
 <%= form_for @user, url: login_path, method: 'POST' do |f| %>
     <%= f.label :name %>
     <%= f.text_field :name %>
