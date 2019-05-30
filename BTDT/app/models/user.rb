@@ -1,5 +1,5 @@
 class User < ApplicationRecord
-    has_secure_password ######BUG########
+    has_secure_password 
     has_many :visits
     has_many :countries, through: :visits
     has_many :posts
@@ -46,22 +46,22 @@ class User < ApplicationRecord
       User.all.sort_by{|u| u.visits.length}.reverse
     end
 
-    def my_rank_by_countries
+    def my_rank_by_countries#WORKING
       rank = User.sort_by_countries.index {|u| u.name == self.name} + 1
       rank
     end
 
-    def my_rank_by_points
+    def my_rank_by_points#WORKING
       rank = User.sort_by_points.index {|u| u.name == self.name} + 1
       rank
     end
 
-    def my_rank_by_visits
+    def my_rank_by_visits#WORKING
       rank = User.sort_by_visits.index {|u| u.name == self.name} + 1
       rank
     end
 
-    def title
+    def title#WORKING
       #based on num of countries visited
       num = self.num_of_countries
       if num > 50
@@ -78,7 +78,4 @@ class User < ApplicationRecord
         "Couch Potato 'You need to get out more'"
       end
     end
-
-    # def age_range
-    # end
 end
