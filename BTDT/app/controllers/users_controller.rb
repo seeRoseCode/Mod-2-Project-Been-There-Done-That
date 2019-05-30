@@ -53,14 +53,11 @@ class UsersController < ApplicationController
         end
     end
 
-    def destroy ###BUG###
+    def destroy #WORKING
       @user = User.find(params[:id])
-    #   @user.destroy
-      @user.name = 'delete'
-      @user.save!(validate: false)
-    #   session.destroy
-    #   redirect_to home_path
-    redirect_to users_path
+        @user.destroy
+        session[:user_id] = nil
+      redirect_to home_path
     end
 
     private
