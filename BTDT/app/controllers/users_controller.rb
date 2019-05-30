@@ -1,7 +1,6 @@
 class UsersController < ApplicationController
 
     def home
-        # byebug
       @users = User.all
       @rank_by_points = User.sort_by_points[0..4]
       @rank_by_countries = User.sort_by_countries[0..4]
@@ -32,7 +31,6 @@ class UsersController < ApplicationController
         end
     end
 
-
     def show
       @user = User.find(params[:id])
       @posts = @user.posts[0..4]
@@ -42,17 +40,17 @@ class UsersController < ApplicationController
       @user = User.find(params[:id])
     end
 
-    def update#BUG######################################################
-      @user = User.find(params[:id])  
-      @user.profile_pic = params["user"][:profile_pic]
-      @user.age = params["user"][:age]
-      @user.country_of_origin = params["user"][:country_of_origin]
-      if @user.save
-          session[:user_id] = @user.id
-          redirect_to user_path(@user)
-      else
-          render :edit
-      end
+    def update###WORKING###
+        @user = User.find(params[:id])  
+        @user.profile_pic = params["user"][:profile_pic]
+        @user.age = params["user"][:age]
+        @user.country_of_origin = params["user"][:country_of_origin]
+        if @user.save!(validate: false)
+            session[:user_id] = @user.id
+            redirect_to user_path(@user)
+        else
+            render :edit
+        end
     end
 
     def destroy ###BUG###
