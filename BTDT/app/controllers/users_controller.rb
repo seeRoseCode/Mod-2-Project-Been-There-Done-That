@@ -34,8 +34,8 @@ class UsersController < ApplicationController
 
 
     def show
-      current_user
-      @posts = current_user.posts[0..4]
+      @user = User.find(params[:id])
+      @posts = @user.posts[0..4]
     end
 
     def edit
@@ -47,8 +47,8 @@ class UsersController < ApplicationController
       current_user.age = params["user"][:age]
       current_user.country_of_origin = params["user"][:country_of_origin]
       if current_user.save
-          session[:user_id] = this_user.id
-          redirect_to user_path(this_user)
+          session[:user_id] = @user.id
+          redirect_to user_path(@user)
       else
           render :edit
       end
@@ -57,7 +57,8 @@ class UsersController < ApplicationController
 
     def destroy
       current_user.destroy
-      redirect_to users_path
+      session.destroy
+      redirect_to home_path
     end
 
 
