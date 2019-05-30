@@ -1,7 +1,7 @@
 <%# <% byebug %>
 <p><%= alert %></p>
 
-<%= form_for @user, url: login_path, method: 'POST' do |f| %>
+<%= form_for current_user, url: login_path, method: 'POST' do |f| %>
     <%= f.label :name %>
     <%= f.text_field :name %>
 

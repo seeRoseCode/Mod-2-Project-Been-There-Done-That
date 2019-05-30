@@ -26,7 +26,7 @@
             </tr>
             <% end %>
         </tbody>
-      </table> 
+      </table>
     </div>
     <div class="col-sm-5">
       <h2 class="text-center">MOST COUNTRIES</h2>
@@ -43,7 +43,7 @@
             </tr>
             <% end %>
         </tbody>
-      </table> 
+      </table>
     </div>
   </div>
 </div>
@@ -58,11 +58,11 @@
         <tbody>
           <% @most_visited_countries.each do |c| %>
           <tr class="table-active">
-            <th scope="row"><%= c.flag_emoji %> <%= link_to c.name, country_path(c) %></th>
+            <th scope="row"><%= c.emoji %> <%= link_to c.name, country_path(c) %></th>
             <td><%= c.visits.length %></td>
             </tr>
             <% end %>
         </tbody>
-      </table> 
+      </table>
   </div>
 </div>

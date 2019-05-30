@@ -9,7 +9,7 @@ class PostsController < ApplicationController
   end
 
   def create#WORKING
-    @user = User.find_by(id: session[:user_id]) 
+    @user = User.find_by(id: session[:user_id])
     @post = Post.new(post_params)
     @post.user_id = session[:user_id]
     if @post.save
@@ -51,4 +51,5 @@ private
   def this_post
     @post = Post.find(params[:id])
   end
+
 end

@@ -32,9 +32,16 @@ class CommentsController < ApplicationController
 
   def edit
     @comment = Comment.find(params[:id])
+    @user = User.find(session[:user_id])
   end
 
   def update
+    @comment = Comment.find(params[:id])
+    if @comment.update(comment_params)
+      redirect_to posts_path#May need to go to user_path
+    else
+      render :edit
+    end
   end
 
   def destroy
