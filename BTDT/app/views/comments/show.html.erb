@@ -4,3 +4,7 @@
 <% if @comment.post.user_id == session[:id] || @comment.user_id == session[:user_id] %>
   <%= link_to('delete', comment_path(@comment), method: :delete, data: {confirm: "Are you sure?"}) %>
 <% end %>
+
+<% if @comment.user_id == session[:id] %>
+  <%= link_to 'edit', edit_comment_path(@comment) %>
+<% end %>
