@@ -55,7 +55,9 @@ class UsersController < ApplicationController
 
     def destroy ###BUG###
       @user = User.find(params[:id])
-      @user.destroy
+    #   @user.destroy
+      @user.name = 'delete'
+      @user.save!(validate: false)
     #   session.destroy
     #   redirect_to home_path
     redirect_to users_path

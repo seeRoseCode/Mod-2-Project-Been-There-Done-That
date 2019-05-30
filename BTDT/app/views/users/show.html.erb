@@ -28,8 +28,8 @@
 <h3>POSTS</h3>
 <% if @posts.length > 0 %>
   <% @posts.each do |p|%>
-    <li><%= p.title %></li><p><%=p.content %></p>
-    <p><%= link_to 'add comment', {:controller => "comments", :action => "new", :post => p} %></p><br><br><br>
+    <li><%= link_to p.title, post_path(p) %></li>
+    <p><%=p.content %></p>
   <% end %>
 <% else %>
   You don't have any posts <br><br>
