@@ -1,9 +1,9 @@
 class User < ApplicationRecord
     has_secure_password 
-    has_many :visits
+    has_many :visits, dependent: :destroy
     has_many :countries, through: :visits
-    has_many :posts
-    has_many :comments
+    has_many :posts, dependent: :destroy
+    has_many :comments, dependent: :destroy
 
     validates :name, presence: true 
     validates :password, presence: true
