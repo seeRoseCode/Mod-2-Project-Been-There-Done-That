@@ -46,12 +46,10 @@ class PostsController < ApplicationController
   #   @post.comments.build(comment_params)
   # end
 
-
   def destroy#WORKING
     this_post.destroy
     redirect_to posts_path
   end
-
 ################################################################
 private
 
@@ -59,9 +57,7 @@ private
     params.require(:post).permit(:title, :content, :attributes, comments_attributes: [:text, :attributes])
   end
 
-
   def this_post
     @post = Post.find(params[:id])
   end
-
 end
