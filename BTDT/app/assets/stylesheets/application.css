@@ -14,12 +14,14 @@
  *= require_self
  */
 
- 
-#form-group{
-    margin-left: 20% !important;
-}
+ .jumbotron {
+    background-color: rgb(238, 213, 180);
+    text-shadow: 4px 4px 7px #ffffff;
+  }
 
-.styling-test{
-    color:red !important;
-}
-
+body {
+    background-image: url("btdt_jumbo.jpg");
+    background-repeat: no-repeat;
+    background-position: right top;
+    background-attachment: fixed;
+  }
