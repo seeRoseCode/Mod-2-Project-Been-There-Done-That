@@ -1,4 +1,6 @@
-<h1> Log a New Visit </h1><br>
+<div class="card">
+    <div class="card-body">
+    <h1 class="card-title">Log A New Visit</h1>
 
 <% if @visit.errors %>
     <% @visit.errors.full_messages.each do |msg| %>
@@ -15,7 +17,10 @@
         <%= c.check_box %><%= c.label %>
         </div>
         <% end %>
-    <%= x.submit("Create Visit") %>
+    <%= x.submit "Create Visit", :class => 'btn btn-primary' %>
     </div>
 <% end %>
+</div>
+
+</div>
 </div>

@@ -1,8 +1,10 @@
-<h1> Country's Details </h1>
-<h4><li><label> Name: <label> <%= @country.name %></h4>
-<h4><li><label> Language: <label> <%= @country.language %></h4>
-<h4><li><label> Flag: <label> <%= @country.flag_emoji %></h4>
-
+<div class="card">
+    <div class="card-body">
+    <h1 class="card-title">Country Details</h1>
+<h4>Name: <%= @country.name %></h4>
+<h4>Language: <%= @country.language %></h4>
+<h4>Flag: <%= @country.flag_emoji %></h4>
+<br>
 <h3> Country's Visits: <%= @country.visits.length %> </h3>
 <h4> Country's Tourists: <%= @country.users.uniq.length %> </h4>
 <ul>
@@ -10,3 +12,5 @@
     <li><%= c.name %></li>
   <% end %>
 </ul>
+</div>
+</div>

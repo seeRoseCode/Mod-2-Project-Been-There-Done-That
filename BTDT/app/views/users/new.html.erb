@@ -1,4 +1,6 @@
-<h1> Create an Account </h1>
+<div class="card">
+    <div class="card-body">
+    <h1 class="card-title">Create An Account</h1>
 <%= form_for @user, controller: 'users', action: 'create' do |f| %>
     <%= f.label :name %>
     <%= f.text_field :name %>
@@ -9,5 +11,7 @@
     <%= f.label :password_confirmation %>
     <%= f.password_field :password_confirmation %>
 
-    <%= f.submit "Create Account" %>
+    <%= f.submit "Create Account", :class => 'btn btn-primary' %>
 <% end %>
+</div>
+</div>
