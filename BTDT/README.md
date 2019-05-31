@@ -10,7 +10,6 @@ User Stories
 4. User can create posts about their visits
 5. User can create comments on other users’ visits and their own visits
 
-
 Site Map
 -  Home
     -  Users
