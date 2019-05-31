@@ -8,8 +8,8 @@
 <h3> Country's Visits: <%= @country.visits.length %> </h3>
 <h4> Country's Tourists: <%= @country.users.uniq.length %> </h4>
 <ul>
-  <% @country.users.uniq.each do |c| %>
-    <li><%= c.name %></li>
+  <% @country.users.uniq.each do |u| %>
+    <li><%= link_to u.name, user_path(u) %></li>
   <% end %>
 </ul>
 </div>

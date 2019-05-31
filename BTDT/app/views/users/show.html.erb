@@ -23,7 +23,7 @@
 <h4>Number of Visits: <%= @user.visits.length %></h4>
 <ul>
   <% @user.countries.uniq.each do |c| %>
-    <li><%= c.name %></li>
+    <li><%= link_to c.name, country_path(c) %></li>
   <% end %>
 </ul>
 

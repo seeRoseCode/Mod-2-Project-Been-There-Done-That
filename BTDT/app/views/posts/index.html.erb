@@ -4,7 +4,8 @@
 
  <ul>
    <% @posts.each do |p| %>
-   <li><%= link_to p.title, post_path(p) %></li>
+   <li><%= link_to p.title, post_path(p) %> by <%= p.user.name %></li>
+        <%= p.content %><br><br>
    <% end %>
  </ul>
  
