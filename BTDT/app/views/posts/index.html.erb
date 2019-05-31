@@ -1,8 +1,12 @@
-<h1>All Posts</h1>
- <ul>
+<div class="card">
+    <div class="card-body">
+    <h1 class="card-title">All Posts</h1>
 
+ <ul>
    <% @posts.each do |p| %>
    <li><%= link_to p.title, post_path(p) %></li>
    <% end %>
-
  </ul>
+ 
+ </div>
+ </div>

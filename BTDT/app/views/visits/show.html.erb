@@ -1,5 +1,9 @@
-<h1> Visit Details </h1>
+<div class="card">
+    <div class="card-body">
+    <h1 class="card-title">Visit Details</h1>
 <label> Country: <label>
 <%= @visit.country.name %><br>
 <label> User's Name: <label>
 <%= link_to(@visit.user.name, user_path(@visit.user)) %>
+</div>
+</div>

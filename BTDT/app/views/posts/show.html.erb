@@ -1,10 +1,19 @@
-<h1><%= @post.title %></h1>
+<div class="card">
+    <div class="card-body">
+    <h1 class="card-title"><%= @post.title %></h1>
 
 <h2>By <%= @post.user.name %></h2>
 
-<p><%= @post.content %></p><br><br>
+<p><%= @post.content %></p>
+</div>
+</div>
 
-<h3>Comments</h3>
+<br>
+<br>
+
+<div class="card">
+    <div class="card-body">
+    <h3 class="card-title">Comments</h3>
 <ul>
   <% @post.comments.each do |c|%>
     <%= c.text %><br>
@@ -16,7 +25,7 @@
 <%= form_for @comment do |f| %>
   Comment : <%= f.text_area :text %><br />
   <%= f.hidden_field :post_id, :value => @post.id %>
-  <%= f.submit :post, :value => "comment" %>
+  <%= f.submit :post, :value => "Submit Comment", :class => 'btn btn-primary' %>
 <% end %>
 
 <% if session[:user_id] == @post.user.id %>
@@ -24,3 +33,5 @@
   <%= link_to('Delete Post', post_path(@post), method: :delete, data: {confirm: "Are you sure?"}) %><br>
   <%= link_to('Profile Page', user_path(@post.user.id)) %><br>
 <% end %>
+</div>
+</div>

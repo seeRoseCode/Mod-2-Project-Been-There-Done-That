@@ -1,6 +1,17 @@
-<h1> All Countries </h1>
- <ul>
+<div class="card">
+    <div class="card-body">
+    <h1 class="card-title">All Countries</h1>
+
+ <div class="container">
+ <div class="row">
    <% @countries.each do |p| %>
-   <li><%= link_to p.name, country_path(p) %>   <%= p.flag_emoji %></li>
+   <div class="col-lg-4">
+   <%= link_to p.name, country_path(p) %>   <%= p.flag_emoji %>
+   </div>
    <% end %>
- </ul>
+   </div>
+   </div>
+ 
+
+ </div>
+ </div>

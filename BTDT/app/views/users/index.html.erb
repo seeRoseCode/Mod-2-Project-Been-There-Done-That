@@ -1,9 +1,10 @@
-<h1>USERS</h1>
-
+<div class="card">
+    <div class="card-body">
+    <h1 class="card-title">USERS</h1>
 <ul>
   <% @users.each do |u| %>
   <li><%= link_to u.name, user_path(u) %></li> <br>
   <% end %>
 </ul>
-
-<h2></h2>
+</div>
+</div>
