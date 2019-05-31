@@ -1,8 +1,9 @@
 <div class="card">
     <div class="card-body">
     <h1 class="card-title"><%= @user.name %></h1>
-<h2>Rank: <%= @user.title %></h2>
-<h3> Rankings </h3>
+<img src="<%= @user.profile_pic %>" alt="My Profile Pic" style=" display: block; margin-left: auto; margin-right: auto; width: 40%;"><br>
+<h2 style="text-align:center;">Level: <%= @user.title %></h2>
+<h3> Ranking </h3>
 <ul>
 <li># <%= @user.my_rank_by_countries %> in Countries visited!</li>
 <li># <%= @user.my_rank_by_points %> in Points Accumulated!</li>
@@ -12,21 +13,24 @@
 
 
 
-<img src="<%= @user.profile_pic %>" alt="My Profile Pic" height = "100" width = "100">
 <h3>Points: <%= @user.points %></h3>
 <ul>
   <li>Age: <%= @user.age %></li>
   <li>Country of Origin: <%= @user.country_of_origin %></li>
 </ul>
 
+<br><hr><br>
+
 <h3>VISITS</h3>
-<h4>Number of Visits: <%= @user.visits.length %></h4>
+<h4>Total Visits: <%= @user.visits.length %></h4><br><br>
+<h4>Countries Visited</h4>
 <ul>
   <% @user.countries.uniq.each do |c| %>
-    <li><%= link_to c.name, country_path(c) %></li>
+    <li><%= link_to c.name, country_path(c) %> <%= c.flag_emoji %></li>
   <% end %>
 </ul>
 
+<br><hr><br>
 <h3>POSTS</h3>
 <% if @posts.length > 0 %>
   <% @posts.each do |p|%>
@@ -39,10 +43,11 @@
 
 
 <% if session[:user_id] == @user.id %>
+    <br><hr><br>
   <%= link_to "Create New Trip", new_visit_path %><br>
   <%= link_to "Create New Post", new_post_path(@user) %><br>
-  <%= link_to "Edit User", edit_user_path(@user) %><br>
-  <%= link_to('Delete User', user_path(@user), method: :delete, data: {confirm: "Are you sure?"}) %><br>
+  <%= link_to "Edit Profile", edit_user_path(@user) %><br>
+  <%= link_to('Delete Profile', user_path(@user), method: :delete, data: {confirm: "Are you sure?"}) %><br>
 <% end %>
 </div>
 </div>
