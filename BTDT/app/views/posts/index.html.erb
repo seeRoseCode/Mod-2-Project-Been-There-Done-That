@@ -5,8 +5,9 @@
  <ul>
    <% @posts.each do |p| %>
    <li><%= link_to p.title, post_path(p) %></li>
+   <p><%= p.content %></p><br>
    <% end %>
  </ul>
- 
+
  </div>
  </div>

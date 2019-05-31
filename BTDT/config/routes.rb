@@ -5,9 +5,9 @@ Rails.application.routes.draw do
   post '/login', to: 'sessions#create'
   get '/logout', to: 'sessions#destroy', as: 'logout'
   resources :posts#WORKING
-  resources :comments#WORKING
+  resources :comments, only: [:new, :create, :show, :edit, :update, :destroy]#WORKING
   resources :users#WORKING
   resources :countries, only: [:index, :show]#WORKING
-  resources :visits, only: [:index, :new, :create, :show]#WORKING
+  resources :visits, only: [:new, :create, :show]#WORKING
   resources :sessions, only: [:create, :new, :destroy]
 end

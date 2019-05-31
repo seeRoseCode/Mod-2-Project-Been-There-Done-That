@@ -16,9 +16,9 @@
     <h3 class="card-title">Comments</h3>
 <ul>
   <% @post.comments.each do |c|%>
-    <%= c.text %><br>
-    <%= link_to "Edit", edit_comment_path(c)%> 
-    <%= link_to('Delete', comment_path(c), method: :delete, data: {confirm: 'Are you sure?'}) %><br>
+  <p class="comment-body"><%= c.text %><br>
+    <%= link_to "Edit", edit_comment_path(c)%> |
+    <%= link_to('Delete', comment_path(c), method: :delete, data: {confirm: 'Are you sure?'}) %><br></p>
   <% end %>
 </ul>
 
