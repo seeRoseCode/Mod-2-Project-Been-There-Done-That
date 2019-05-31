@@ -11,21 +11,32 @@ User Stories
 5. User can create comments on other users’ visits and their own visits
 
 Site Map
-- Home
-    - Users
-        -  New
+-  Home
+    -  Users
+        -  New (Create New Account)
+	-  Index (All Users Page)	
         -  Show (User Profile)
-        -  Edit & Update (Profile Picture, Age, Country of Origin)
+        -  Edit & Update (Profile Picture, Age, and Country of Origin)
         -  Delete (Delete Profile)
-        -  
 
-    - Posts
-        - All Posts
-        - New
+    -  Visits
+	-  New (Create New Visits)	
 
+    -  Countries
+	-  Index (All Countries Page)	
+        -  Show (Country Details Page)
 
-            - Comments
-    - Countries
+    -  Posts
+        -  New (Create New Post)
+	-  Index (All Posts Page)	
+        -  Show (Post Details Page with Associated Comments)
+        -  Edit & Update (Profile Picture, Age, and Country of Origin)
+        -  Delete (Delete Profile)
+
+    -  Comments
+        -  New (Create New Comment)
+        -  Edit & Update (Edit Comment)
+        -  Delete (Delete Comment)
 
 
 Tables and Schema
@@ -60,10 +71,12 @@ Comments
 Relationships
 User
     has_secure_password 
-    has_many :visits
+    has_many :visits, dependent: :destroy
     has_many :countries, through: :visits
-    has_many :posts
-    has_many :comments
+    has_many :posts, dependent: :destroy
+    has_many :comments, dependent: :destroy
+    validates :name, presence: true 
+    validates :password, presence: true
 
 Country
   has_many :visits
@@ -74,7 +87,7 @@ Visit
   belongs_to :user
 
 Post 
-    has_many :comments
+    has_many :comments, dependent: :destroy
     belongs_to :user
 
 Comment
