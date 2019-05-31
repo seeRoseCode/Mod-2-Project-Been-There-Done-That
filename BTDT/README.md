@@ -13,8 +13,18 @@ User Stories
 Site Map
 - Home
     - Users
+        -  New
+        -  Show (User Profile)
+        -  Edit & Update (Profile Picture, Age, Country of Origin)
+        -  Delete (Delete Profile)
+        -  
+
     - Posts
-        - Comments
+        - All Posts
+        - New
+
+
+            - Comments
     - Countries
 
 
