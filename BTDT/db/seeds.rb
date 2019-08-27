@@ -17,7 +17,7 @@ flags_hash.each do |fh|
   Country.create(
     name: fh["name"],
     language: fh["languages"],
-    flag_emoji: fh["emoji"]
+    emoji: fh["emoji"]
   )
 end
 
