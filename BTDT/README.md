@@ -1,6 +1,8 @@
 # README
 Been There Done That ReadMe
 
+[Video Demo](https://www.youtube.com/watch?v=piGMwFb833U)
+
 Welcome to our Rails application, Been There Done That! This web application enables users to create an account, allows the user to login/logout, and track their visits to countries all of the world. Users will also be able to receive points as they travel to new countries and view a leaderboard for several different categories.
 
 User Stories
